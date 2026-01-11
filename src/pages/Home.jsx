@@ -9,6 +9,7 @@ import {
   Car,
   Monitor,
   Settings,
+  Handshake,
   Users,
   CheckCircle,
   Phone,
@@ -186,7 +187,7 @@ const Home = () => {
 
                   {/* Main Heading */}
                   <motion.h1
-                    className="text-5xl lg:text-7xl font-bold text-white leading-tight"
+                    className="text-5xl lg:text-7xl font-bold text-white leading-tight -translate-y-8"
                     variants={fadeInLeft}
                   >
                     Himpunan Mahasiswa{" "}
@@ -197,7 +198,7 @@ const Home = () => {
 
                   {/* Subtitle with Typed */}
                   <motion.div
-                    className="text-xl lg:text-2xl text-slate-300 h-16 flex items-center -translate-y-8"
+                    className="text-xl lg:text-2xl text-slate-300 h-16 flex items-center -translate-y-16"
                     variants={fadeInLeft}
                   >
                     <ReactTyped
@@ -228,116 +229,122 @@ const Home = () => {
         {/* Layanan Section */}
         <section className="py-20 bg-slate-800">
           <div className="container mx-auto px-6 lg:px-8">
+            {/* Header */}
             <motion.div
               className="text-center mb-16"
               initial="hidden"
               whileInView="visible"
-              exit="exit"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeInUp}
             >
               <h2 className="text-4xl font-bold text-white mb-6">
-                Layanan <span className="text-cyan-400">Kami</span>
+                HIMATIF dalam <span className="text-cyan-400">Aksi</span>
               </h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Kami menyediakan berbagai solusi teknologi untuk memenuhi
-                kebutuhan bisnis Anda
+                HIMATIF hadir sebagai wadah pengembangan akademik, organisasi,
+                dan kebersamaan mahasiswa Teknik Informatika
               </p>
             </motion.div>
 
+            {/* Cards */}
             <motion.div
               className="grid md:grid-cols-3 gap-8 items-stretch"
               initial="hidden"
               whileInView="visible"
-              exit="exit"
               viewport={{ once: true, amount: 0.2 }}
               variants={staggerContainer}
             >
-              {/* Sistem Parkir */}
+              {/* Akademik */}
               <motion.div variants={scaleIn} className="flex items-stretch">
                 <Link
-                  to="/services/parking-system"
-                  className="group text-center space-y-4 bg-slate-900/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8
+                  to="/program/akademik"
+                  className="group text-center space-y-4 bg-slate-900/50 backdrop-blur-xl
+          border border-slate-700/50 rounded-2xl p-8
           transition-all duration-300 transform hover:-translate-y-3 hover:scale-105
-          hover:shadow-2xl hover:shadow-blue-500/30 block md:self-stretch"
+          hover:shadow-2xl hover:shadow-cyan-500/30 block"
                 >
                   <motion.div
-                    className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/30 transition-all duration-300"
+                    className="w-16 h-16 bg-cyan-500/20 rounded-xl flex items-center justify-center mx-auto mb-6
+            group-hover:bg-cyan-500/30 transition-all duration-300"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <Car className="w-8 h-8 text-cyan-400" />
+                    <Monitor className="w-8 h-8 text-cyan-400" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-white mb-4">
-                    Sistem Parkir
+                    Pengembangan Akademik
                   </h3>
                   <p className="text-slate-400 mb-6 leading-relaxed">
-                    Solusi parkir otomatis dengan teknologi RFID dan sensor
-                    pintar untuk efisiensi maksimal dalam pengelolaan area
-                    parkir.
+                    Meningkatkan wawasan dan keilmuan mahasiswa melalui seminar,
+                    diskusi, dan kegiatan edukatif di bidang teknologi
+                    informasi.
                   </p>
-                  <div className="flex items-center justify-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                    <span className="font-medium">Pelajari Lebih Lanjut</span>
-                    <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  {/* <div className="flex items-center justify-center text-cyan-400">
+            <span className="font-medium">Lihat Program</span>
+            <ChevronRight className="w-4 h-4 ml-2" />
+          </div> */}
                 </Link>
               </motion.div>
 
-              {/* Aplikasi Custom */}
+              {/* Organisasi */}
               <motion.div variants={scaleIn} className="flex items-stretch">
                 <Link
-                  to="/services/software"
-                  className="group text-center space-y-4 bg-slate-900/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8
+                  to="/program/organisasi"
+                  className="group text-center space-y-4 bg-slate-900/50 backdrop-blur-xl
+          border border-slate-700/50 rounded-2xl p-8
           transition-all duration-300 transform hover:-translate-y-3 hover:scale-105
-          hover:shadow-2xl hover:shadow-blue-500/30 block md:self-stretch"
+          hover:shadow-2xl hover:shadow-blue-500/30 block"
                 >
                   <motion.div
-                    className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/30 transition-all duration-300"
+                    className="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center mx-auto mb-6
+            group-hover:bg-blue-500/30 transition-all duration-300"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <Monitor className="w-8 h-8 text-blue-400" />
+                    <Settings className="w-8 h-8 text-blue-400" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-white mb-4">
-                    Aplikasi Custom
+                    Organisasi & Kepemimpinan
                   </h3>
                   <p className="text-slate-400 mb-6 leading-relaxed">
-                    Pengembangan aplikasi sesuai kebutuhan bisnis dengan
-                    teknologi terdepan dan interface yang user-friendly.
+                    Melatih kepemimpinan, tanggung jawab, dan kerja sama tim
+                    melalui pengalaman berorganisasi di HIMATIF.
                   </p>
-                  <div className="flex items-center justify-center text-blue-400 group-hover:text-blue-300 transition-colors">
-                    <span className="font-medium">Pelajari Lebih Lanjut</span>
-                    <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  {/* <div className="flex items-center justify-center text-blue-400">
+            <span className="font-medium">Lihat Program</span>
+            <ChevronRight className="w-4 h-4 ml-2" />
+          </div> */}
                 </Link>
               </motion.div>
 
-              {/* Sistem Ticketing */}
+              {/* Kebersamaan */}
               <motion.div variants={scaleIn} className="flex items-stretch">
                 <Link
-                  to="/services/ticketing-system"
-                  className="group text-center space-y-4 bg-slate-900/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8
+                  to="/program/makrab"
+                  className="group text-center space-y-4 bg-slate-900/50 backdrop-blur-xl
+          border border-slate-700/50 rounded-2xl p-8
           transition-all duration-300 transform hover:-translate-y-3 hover:scale-105
-          hover:shadow-2xl hover:shadow-emerald-500/30 block md:self-stretch"
+          hover:shadow-2xl hover:shadow-emerald-500/30 block"
                 >
                   <motion.div
-                    className="w-16 h-16 bg-emerald-500/20 rounded-xl flex items-center justify-center mx-auto mb-6 group-hover:bg-emerald-500/30 transition-all duration-300"
+                    className="w-16 h-16 bg-emerald-500/20 rounded-xl flex items-center justify-center mx-auto mb-6
+            group-hover:bg-emerald-500/30 transition-all duration-300"
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <Settings className="w-8 h-8 text-emerald-400" />
+                    <Handshake className="w-8 h-8 text-emerald-400" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-white mb-4">
-                    Sistem Ticketing
+                    Solidaritas & Kebersamaan
                   </h3>
                   <p className="text-slate-400 mb-6 leading-relaxed">
-                    Sistem tiket digital terintegrasi untuk berbagai jenis
-                    event, transportasi, dan manajemen antrian.
+                    Membangun rasa kekeluargaan dan solidaritas antar mahasiswa
+                    melalui kegiatan Makrab dan event internal HIMATIF.
                   </p>
-                  <div className="flex items-center justify-center text-emerald-400 group-hover:text-emerald-300 transition-colors">
-                    <span className="font-medium">Pelajari Lebih Lanjut</span>
-                    <ChevronRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
+                  {/* <div className="flex items-center justify-center text-emerald-400">
+                    <span className="font-medium">Lihat Kegiatan</span>
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </div> */}
                 </Link>
               </motion.div>
             </motion.div>
@@ -457,24 +464,28 @@ const Home = () => {
               {/* HIMATIF22 */}
               <motion.div
                 variants={scaleIn}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="text-center space-y-4 bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6 
-                transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30"
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+  rounded-xl transition-all duration-300 
+  hover:shadow-2xl hover:shadow-cyan-500/30"
               >
-                <motion.div
-                  className="w-16 h-16 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full flex items-center justify-center mx-auto"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Shield className="w-8 h-8 text-purple-400" />
-                </motion.div>
-                <h3 className="font-semibold text-white text-lg">
-                  Garansi Resmi
-                </h3>
-                <p className="text-slate-400">
-                  Garansi dan maintenance berkala untuk menjaga performa optimal
-                  sistem
-                </p>
+                <div className="rounded-xl overflow-hidden">
+                  {/* FOTO */}
+                  <div className="bg-slate-900">
+                    <img
+                      src="Himatif22.jpg"
+                      alt="HIMATIF 2022"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  {/* NAMA */}
+                  <div className="py-4 text-center">
+                    <h3 className="font-semibold text-white text-lg tracking-wide">
+                      HIMATIF 2022 - 2023
+                    </h3>
+                  </div>
+                </div>
               </motion.div>
             </motion.div>
           </div>

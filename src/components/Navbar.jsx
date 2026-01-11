@@ -49,9 +49,9 @@ export default function Navbar() {
               Program
             </NavLink>
 
-            <NavLink to="/contact" className={navClass}>
+            {/* <NavLink to="/contact" className={navClass}>
               Contact
-            </NavLink>
+            </NavLink> */}
           </div>
 
           {/* BUTTON MOBILE */}
