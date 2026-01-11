@@ -146,17 +146,17 @@ export default function Navbar() {
           </NavLink>
         </motion.div>
 
-        {/* <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants}>
           <NavLink to="/makrab" className="block hover:text-gray-300 font-semibold transition-colors">
             Program
           </NavLink>
-        </motion.div> */}
+        </motion.div>
 
-        <motion.div variants={itemVariants}>
+        {/* <motion.div variants={itemVariants}>
           <NavLink to="/contact" className="block hover:text-gray-300 transition-colors">
             Contact
           </NavLink>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.div>
   )}
