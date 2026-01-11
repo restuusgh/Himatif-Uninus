@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss()
   ],
+    base: "/",
     optimizeDeps: {
     include: ['@emotion/react', '@emotion/styled', '@mui/material']
   }
