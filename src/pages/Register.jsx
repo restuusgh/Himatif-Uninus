@@ -12,6 +12,26 @@ import {
 } from "react-icons/fa";
 import { supabase } from "../supabaseClient";
 
+const forbiddenWords = [
+  "anjing",
+  "babi",
+  "goblok",
+  "tolol",
+  "bangsat",
+  "kontol",
+  "memek",
+  "asu",
+  "tol",
+  "kon",
+  "bodoh",
+  "bego",
+  "sia",
+  "pepek",
+  "jule",
+  "fefek",
+  "vevek",
+];
+
 const Register = () => {
   const [formData, setFormData] = useState({
     nama: "",
@@ -23,13 +43,47 @@ const Register = () => {
     alergi: "",
   });
 
+  const [errors, setErrors] = useState({
+    nama: "",
+    email: "",
+  });
+
+  const containsForbiddenWord = (text) => {
+    return forbiddenWords.find((word) =>
+      text.toLowerCase().includes(word)
+    );
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // validasi kata terlarang
+    if (name === "nama") {
+      const found = containsForbiddenWord(value);
+      setErrors((prev) => ({
+        ...prev,
+        nama: found ? `Kata "${found}" tidak diperbolehkan` : "",
+      }));
+    }
+
+    if (name === "email") {
+      const found = containsForbiddenWord(value);
+      setErrors((prev) => ({
+        ...prev,
+        email: found ? `Kata "${found}" tidak diperbolehkan` : "",
+      }));
+    }
+
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (errors.nama || errors.email) {
+      toast.error("Terdapat kata yang tidak diperbolehkan");
+      return;
+    }
 
     const { error } = await supabase.from("registrations").insert([
       {
@@ -59,6 +113,8 @@ const Register = () => {
       riwayat_penyakit: "",
       alergi: "",
     });
+
+    setErrors({ nama: "", email: "" });
   };
 
   const fields = [
@@ -86,12 +142,12 @@ const Register = () => {
         <Toaster position="top-center" />
 
         <h1 className="text-3xl font-bold text-center text-white mb-10">
-          Daftar ICC Season IV
+          Daftar SEMDIKTI 2025
         </h1>
 
         <form onSubmit={handleSubmit}>
           {fields.map(({ name, label, icon, type }) => (
-            <div className="relative mb-8" key={name}>
+            <div className="relative mb-10" key={name}>
               <input
                 type={type}
                 name={name}
@@ -101,14 +157,14 @@ const Register = () => {
                 placeholder=" "
                 className="
                   peer w-full bg-transparent border-b-2 border-gray-400
-                  text-white text-base py-2 pr-8 outline-none
+                  text-white py-2 pr-8 outline-none
                   focus:border-blue-500
                 "
               />
 
               <label
                 className="
-                  absolute left-0 top-2 text-gray-400 text-sm
+                  absolute left-0 top-2 text-gray-400
                   transition-all duration-200
                   peer-placeholder-shown:top-2
                   peer-placeholder-shown:text-sm
@@ -125,6 +181,12 @@ const Register = () => {
               <span className="absolute right-2 top-2 text-gray-400">
                 {icon}
               </span>
+
+              {errors[name] && (
+                <p className="text-red-500 text-xs mt-1">
+                  {errors[name]}
+                </p>
+              )}
             </div>
           ))}
 
@@ -141,7 +203,8 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded"
+            disabled={errors.nama || errors.email}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold py-3 rounded"
           >
             Daftar Sekarang
           </button>

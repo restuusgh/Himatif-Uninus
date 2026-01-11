@@ -136,7 +136,7 @@ const DataRegister = () => {
         {/* WhatsApp */}
         <div className="mt-12 text-center">
           <a
-            href="https://chat.whatsapp.com/KwxMRzG23Ag3yxMN1HWaga"
+            href="https://chat.whatsapp.com/JrCnrMh8Nig3MTgrgIkUNZ"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md"
