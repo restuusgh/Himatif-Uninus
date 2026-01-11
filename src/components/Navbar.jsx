@@ -4,77 +4,57 @@ import { useState } from "react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navClass = ({ isActive }) =>
+    `relative pb-1 transition-all
+     hover:text-white
+     after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:transition-all
+     ${isActive ? "text-white after:w-full" : "after:w-0 hover:after:w-full"}`;
+
   return (
-    <nav className="bg-[#121B2F] text-white">
+    <nav className="sticky top-0 z-50 bg-[#121B2F]/95 backdrop-blur-lg text-white shadow-lg shadow-black/20">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 sm:gap-3 group ml-6 sm:ml-20">
-          <img src="HIMATIF.png" alt="Logo HIMATIF" className="w-15 h-15 sm:w-15 sm:h-15 object-contain rounded-lg p-1"
-          whileHover={{ rotate:5, scale: 1.05 }}
-          transition={{ duration: 0.3 }}
-        />
-        <div className="flex flex-col">
-            <span className="font-bold text-white text-sm sm:text-lg">HIMATIF</span>
-            <span className="text-xs text-slate-400 hidden sm:block">Glory Glory Glory</span>
-        </div>
+
+          {/* LOGO */}
+          <Link
+            to="/"
+            className="flex items-center gap-2 sm:gap-3 group ml-6 sm:ml-20"
+          >
+            <img
+              src="HIMATIF.png"
+              alt="Logo HIMATIF"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg p-1"
+            />
+            <div className="flex flex-col">
+              <span className="font-bold text-white text-sm sm:text-lg">
+                HIMATIF
+              </span>
+              <span className="text-xs text-slate-400 hidden sm:block">
+                Glory Glory Glory
+              </span>
+            </div>
           </Link>
 
-          {/* Menu Desktop */}
+          {/* MENU DESKTOP */}
+          <div className="font-bold hidden md:flex space-x-6 mr-2 lg:mr-16">
+            <NavLink to="/home" className={navClass}>
+              Home
+            </NavLink>
 
+            <NavLink to="/about" className={navClass}>
+              About
+            </NavLink>
 
-<div className="font-bold hidden md:flex space-x-6 mr-2 lg:mr-16">
-  <NavLink
-    to="/home"
-    className={({ isActive }) =>
-      `relative pb-1 transition-all
-       hover:text-white
-       after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:transition-all
-       ${isActive ? "text-white after:w-full" : "after:w-0 hover:after:w-full"}`
-    }
-  >
-    Home
-  </NavLink>
+            <NavLink to="/makrab" className={navClass}>
+              Program
+            </NavLink>
 
-  <NavLink
-    to="/about"
-    className={({ isActive }) =>
-      `relative pb-1 transition-all
-       hover:text-white
-       after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:transition-all
-       ${isActive ? "text-white after:w-full" : "after:w-0 hover:after:w-full"}`
-    }
-  >
-    About
-  </NavLink>
+            <NavLink to="/contact" className={navClass}>
+              Contact
+            </NavLink>
+          </div>
 
-  <NavLink
-    to="/makrab"
-    className={({ isActive }) =>
-      `relative pb-1 transition-all
-       hover:text-white
-       after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:transition-all
-       ${isActive ? "text-white after:w-full" : "after:w-0 hover:after:w-full"}`
-    }
-  >
-    Program
-  </NavLink>
-
-  <NavLink
-    to="/contact"
-    className={({ isActive }) =>
-      `relative pb-1 transition-all
-       hover:text-white
-       after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-white after:transition-all
-       ${isActive ? "text-white after:w-full" : "after:w-0 hover:after:w-full"}`
-    }
-  >
-    Contact
-  </NavLink>
-</div>
-
-
-          {/* Button Mobile */}
+          {/* BUTTON MOBILE */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden focus:outline-none"
@@ -105,21 +85,21 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menu Mobile */}
+      {/* MENU MOBILE */}
       {isOpen && (
-        <div className="md:hidden bg-blue-700 px-4 pb-4 space-y-2">
-          <a href="#" className="block hover:text-gray-200">
+        <div className="md:hidden bg-[#121B2F] px-6 pb-4 space-y-3 border-t border-white/10">
+          <NavLink to="/home" className="block hover:text-gray-300">
             Home
-          </a>
-          <a href="#" className="block hover:text-gray-200">
+          </NavLink>
+          <NavLink to="/about" className="block hover:text-gray-300">
             About
-          </a>
-          <Link to="/makrab" className="hover:text-gray-200 font-semibold">
+          </NavLink>
+          <NavLink to="/makrab" className="block hover:text-gray-300 font-semibold">
             Program
-          </Link>
-          <a href="#" className="block hover:text-gray-200">
+          </NavLink>
+          <NavLink to="/contact" className="block hover:text-gray-300">
             Contact
-          </a>
+          </NavLink>
         </div>
       )}
     </nav>

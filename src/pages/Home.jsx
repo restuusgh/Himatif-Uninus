@@ -197,7 +197,7 @@ const Home = () => {
 
                   {/* Subtitle with Typed */}
                   <motion.div
-                    className="text-xl lg:text-2xl text-slate-300 h-16 flex items-center"
+                    className="text-xl lg:text-2xl text-slate-300 h-16 flex items-center -translate-y-8"
                     variants={fadeInLeft}
                   >
                     <ReactTyped
@@ -218,9 +218,6 @@ const Home = () => {
                       cursorChar="|"
                     />
                   </motion.div>
-
-                
-
                 </motion.div>
               </div>
             </div>
@@ -363,7 +360,8 @@ const Home = () => {
                 <span className="text-cyan-400">HIMATIF UNINUS</span>
               </h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Menelusuri perjalanan kepengurusan HIMATIF UNINUS dari masa ke masa dalam membangun organisasi.
+                Menelusuri perjalanan kepengurusan HIMATIF UNINUS dari masa ke
+                masa dalam membangun organisasi.
               </p>
             </motion.div>
 
@@ -375,88 +373,88 @@ const Home = () => {
               viewport={{ once: true, amount: 0.2 }}
               variants={staggerContainer}
             >
-              {/* Konsultasi Gratis */}
-<motion.div
-  variants={scaleIn}
-  whileHover={{ y: -8, scale: 1.03 }}
-  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
-  rounded-xl transition-all duration-300 
-  hover:shadow-2xl hover:shadow-cyan-500/30"
->
-  <div className="rounded-xl overflow-hidden">
-    {/* FOTO */}
-    <div className="bg-slate-900">
-      <img
-        src="Himatif25.jpg"
-        alt="HIMATIF 2025"
-        className="w-full h-auto object-contain"
-      />
-    </div>
-
-    {/* NAMA */}
-    <div className="py-4 text-center">
-      <h3 className="font-semibold text-white text-lg tracking-wide">
-        HIMATIF 2025 - 2026
-      </h3>
-    </div>
-  </div>
-</motion.div>
-
-
-
-
-
-              {/* Tim Berpengalaman */}
+              {/* HIMATIF25 */}
               <motion.div
                 variants={scaleIn}
-                whileHover={{ y: -10, scale: 1.05 }}
-                className="text-center space-y-4 bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6 
-                transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30"
-              >
-                <motion.div
-                  className="w-16 h-16 bg-gradient-to-r from-blue-500/20 to-emerald-500/20 rounded-full flex items-center justify-center mx-auto"
-                  whileHover={{ rotate: 360 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <Users className="w-8 h-8 text-blue-400" />
-                </motion.div>
-                <h3 className="font-semibold text-white text-lg">
-                  Tim Berpengalaman
-                </h3>
-                <p className="text-slate-400">
-                  Tim berpengalaman lebih dari 5 tahun di bidang teknologi dan
-                  sistem keamanan
-                </p>
-              </motion.div>
-
-              {/* Support 24/7 */}
-<motion.div
-  variants={scaleIn}
-  whileHover={{ y: -8, scale: 1.03 }}
-  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
   rounded-xl transition-all duration-300 
   hover:shadow-2xl hover:shadow-cyan-500/30"
->
-  <div className="rounded-xl overflow-hidden">
-    {/* FOTO */}
-    <div className="bg-slate-900">
-      <img
-        src="himatif23.jpeg"
-        alt="HIMATIF 2023"
-        className="w-full h-auto object-contain"
-      />
-    </div>
+              >
+                <div className="rounded-xl overflow-hidden">
+                  {/* FOTO */}
+                  <div className="bg-slate-900">
+                    <img
+                      src="Himatif25.jpg"
+                      alt="HIMATIF 2025"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
 
-    {/* NAMA */}
-    <div className="py-4 text-center">
-      <h3 className="font-semibold text-white text-lg tracking-wide">
-        HIMATIF 2023 - 2024
-      </h3>
-    </div>
-  </div>
-</motion.div>
+                  {/* NAMA */}
+                  <div className="py-4 text-center">
+                    <h3 className="font-semibold text-white text-lg tracking-wide">
+                      HIMATIF 2025 - 2026
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
 
-              {/* Garansi Resmi */}
+              {/* HIMATIF24 */}
+              <motion.div
+                variants={scaleIn}
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+  rounded-xl transition-all duration-300 
+  hover:shadow-2xl hover:shadow-cyan-500/30"
+              >
+                <div className="rounded-xl overflow-hidden">
+                  {/* FOTO */}
+                  <div className="bg-slate-900">
+                    <img
+                      src="Himatif24.jpeg"
+                      alt="HIMATIF 2024"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  {/* NAMA */}
+                  <div className="py-4 text-center">
+                    <h3 className="font-semibold text-white text-lg tracking-wide">
+                      HIMATIF 2024 - 2025
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* HIMATIF23 */}
+              <motion.div
+                variants={scaleIn}
+                whileHover={{ y: -8, scale: 1.03 }}
+                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+  rounded-xl transition-all duration-300 
+  hover:shadow-2xl hover:shadow-cyan-500/30"
+              >
+                <div className="rounded-xl overflow-hidden">
+                  {/* FOTO */}
+                  <div className="bg-slate-900">
+                    <img
+                      src="himatif23.jpeg"
+                      alt="HIMATIF 2023"
+                      className="w-full h-auto object-contain"
+                    />
+                  </div>
+
+                  {/* NAMA */}
+                  <div className="py-4 text-center">
+                    <h3 className="font-semibold text-white text-lg tracking-wide">
+                      HIMATIF 2023 - 2024
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* HIMATIF22 */}
               <motion.div
                 variants={scaleIn}
                 whileHover={{ y: -10, scale: 1.05 }}
