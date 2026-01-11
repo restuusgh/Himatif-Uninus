@@ -1,5 +1,43 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import { motion, AnimatePresence } from 'framer-motion';
+
+
+const menuVariants = {
+  closed: {
+    opacity: 0,
+    height: 0,
+    transition: {
+      duration: 0.3,
+      when: "afterChildren"
+    }
+  },
+  open: {
+    opacity: 1,
+    height: "auto",
+    transition: {
+      duration: 0.3,
+      when: "beforeChildren",
+      staggerChildren: 0.07
+    }
+  }
+};
+
+const itemVariants = {
+  closed: {
+    opacity: 0,
+    x: -20
+  },
+  open: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeOut"
+    }
+  }
+};
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,15 +76,15 @@ export default function Navbar() {
           {/* MENU DESKTOP */}
           <div className="font-bold hidden md:flex space-x-6 mr-2 lg:mr-16">
             <NavLink to="/home" className={navClass}>
-              Home
+              HOME
             </NavLink>
 
             <NavLink to="/about" className={navClass}>
-              About
+              ABOUT
             </NavLink>
 
             <NavLink to="/makrab" className={navClass}>
-              Program
+              PROGRAM
             </NavLink>
 
             {/* <NavLink to="/contact" className={navClass}>
@@ -86,22 +124,43 @@ export default function Navbar() {
       </div>
 
       {/* MENU MOBILE */}
-      {isOpen && (
-        <div className="md:hidden bg-[#121B2F] px-6 pb-4 space-y-3 border-t border-white/10">
-          <NavLink to="/home" className="block hover:text-gray-300">
+<AnimatePresence>
+  {isOpen && (
+    <motion.div
+      variants={menuVariants}
+      initial="closed"
+      animate="open"
+      exit="closed"
+      className="md:hidden bg-[#121B2F] overflow-hidden border-t border-white/10"
+    >
+      <div className="px-6 pb-4 space-y-3 pt-3">
+        <motion.div variants={itemVariants}>
+          <NavLink to="/home" className="block hover:text-gray-300 transition-colors">
             Home
           </NavLink>
-          <NavLink to="/about" className="block hover:text-gray-300">
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <NavLink to="/about" className="block hover:text-gray-300 transition-colors">
             About
           </NavLink>
-          <NavLink to="/makrab" className="block hover:text-gray-300 font-semibold">
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <NavLink to="/makrab" className="block hover:text-gray-300 font-semibold transition-colors">
             Program
           </NavLink>
-          <NavLink to="/contact" className="block hover:text-gray-300">
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <NavLink to="/contact" className="block hover:text-gray-300 transition-colors">
             Contact
           </NavLink>
-        </div>
-      )}
+        </motion.div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </nav>
   );
 }
