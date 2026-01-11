@@ -135,13 +135,13 @@ export default function Navbar() {
     >
       <div className="px-6 pb-4 space-y-3 pt-3">
         <motion.div variants={itemVariants}>
-          <NavLink to="/home" className="block hover:text-gray-300 transition-colors">
+          <NavLink to="/home" className="block hover:text-gray-300 font-semibold transition-colors">
             Home
           </NavLink>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <NavLink to="/about" className="block hover:text-gray-300 transition-colors">
+          <NavLink to="/about" className="block hover:text-gray-300 font-semibold transition-colors">
             About
           </NavLink>
         </motion.div>
