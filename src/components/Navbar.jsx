@@ -41,6 +41,8 @@ const itemVariants = {
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const closeMenu = () => setIsOpen(false);
+
 
   const navClass = ({ isActive }) =>
     `relative pb-1 transition-all
@@ -56,18 +58,18 @@ export default function Navbar() {
           {/* LOGO */}
           <Link
             to="/"
-            className="flex items-center gap-2 sm:gap-3 group ml-6 sm:ml-20"
+            className="flex items-center gap-2 sm:gap-3 group ml-3 sm:ml-20"
           >
             <img
               src="HIMATIF.png"
               alt="Logo HIMATIF"
-              className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-lg p-1"
+              className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-lg p-1"
             />
             <div className="flex flex-col">
               <span className="font-bold text-white text-sm sm:text-lg">
                 HIMATIF
               </span>
-              <span className="text-xs text-slate-400 hidden sm:block">
+              <span className="text-xs text-slate-400 block sm:block">
                 Glory Glory Glory
               </span>
             </div>
@@ -134,23 +136,36 @@ export default function Navbar() {
       className="md:hidden bg-[#121B2F] overflow-hidden border-t border-white/10"
     >
       <div className="px-6 pb-4 space-y-3 pt-3">
-        <motion.div variants={itemVariants}>
-          <NavLink to="/home" className="block hover:text-gray-300 font-semibold transition-colors">
-            Home
-          </NavLink>
-        </motion.div>
+      <motion.div variants={itemVariants}>
+  <NavLink
+    to="/home"
+    onClick={closeMenu}
+    className="block hover:text-gray-300 font-semibold transition-colors"
+  >
+    Home
+  </NavLink>
+</motion.div>
 
-        <motion.div variants={itemVariants}>
-          <NavLink to="/about" className="block hover:text-gray-300 font-semibold transition-colors">
-            About
-          </NavLink>
-        </motion.div>
+<motion.div variants={itemVariants}>
+  <NavLink
+    to="/about"
+    onClick={closeMenu}
+    className="block hover:text-gray-300 font-semibold transition-colors"
+  >
+    About
+  </NavLink>
+</motion.div>
 
-        <motion.div variants={itemVariants}>
-          <NavLink to="/makrab" className="block hover:text-gray-300 font-semibold transition-colors">
-            Program
-          </NavLink>
-        </motion.div>
+<motion.div variants={itemVariants}>
+  <NavLink
+    to="/makrab"
+    onClick={closeMenu}
+    className="block hover:text-gray-300 font-semibold transition-colors"
+  >
+    Program
+  </NavLink>
+</motion.div>
+
 
         {/* <motion.div variants={itemVariants}>
           <NavLink to="/contact" className="block hover:text-gray-300 transition-colors">
