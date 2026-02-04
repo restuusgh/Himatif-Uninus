@@ -381,33 +381,36 @@ const Home = () => {
               variants={staggerContainer}
             >
               {/* HIMATIF25 */}
-              <motion.div
-                variants={scaleIn}
-                whileHover={{ y: -8, scale: 1.03 }}
-                className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
+              <Link to="/angkatan-2526" className="block">
+                <motion.div
+                  variants={scaleIn}
+                  whileHover={{ y: -8, scale: 1.03 }}
+                  className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 
   rounded-xl transition-all duration-300 
   hover:shadow-2xl hover:shadow-cyan-500/30"
-              >
-                <div className="rounded-xl overflow-hidden">
-                  {/* FOTO */}
-                  <div className="bg-slate-900">
-                    <img
-                      src="Himatif25.jpg"
-                      alt="HIMATIF 2025"
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
+                >
+                  <div className="rounded-xl overflow-hidden">
+                    {/* FOTO */}
+                    <div className="bg-slate-900">
+                      <img
+                        src="Himatif25.jpg"
+                        alt="HIMATIF 2025"
+                        className="w-full h-auto object-contain"
+                      />
+                    </div>
 
-                  {/* NAMA */}
-                  <div className="py-4 text-center">
-                    <h3 className="font-semibold text-white text-lg tracking-wide">
-                      HIMATIF 2025 - 2026
-                    </h3>
+                    {/* NAMA */}
+                    <div className="py-4 text-center">
+                      <h3 className="font-semibold text-white text-lg tracking-wide">
+                        HIMATIF 2025 - 2026
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
 
               {/* HIMATIF24 */}
+              <Link to="/angkatan-2425" className="block">
               <motion.div
                 variants={scaleIn}
                 whileHover={{ y: -8, scale: 1.03 }}
@@ -433,8 +436,10 @@ const Home = () => {
                   </div>
                 </div>
               </motion.div>
+              </Link>
 
               {/* HIMATIF23 */}
+              <Link to="/angkatan-2324" className="block">
               <motion.div
                 variants={scaleIn}
                 whileHover={{ y: -8, scale: 1.03 }}
@@ -460,8 +465,10 @@ const Home = () => {
                   </div>
                 </div>
               </motion.div>
+              </Link>
 
               {/* HIMATIF22 */}
+              <Link to="/angkatan-2223" className="block">
               <motion.div
                 variants={scaleIn}
                 whileHover={{ y: -8, scale: 1.03 }}
@@ -487,6 +494,7 @@ const Home = () => {
                   </div>
                 </div>
               </motion.div>
+              </Link>
             </motion.div>
           </div>
         </section>
